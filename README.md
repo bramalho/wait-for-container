@@ -21,12 +21,12 @@ spec:
       containers:
       # ...
       initContainers:
-      - name: wait-for-dependencies
+      - name: wait-for-container
         image: docker.io/bramalho/wait-for-container:latest
         command: ["/entrypoint.sh"]
         args: ["wait_for", "mysql:DATABASE_URL"]
         envFrom:
         - configMapRef:
             name: {{ include "app.fullname" . }}-dotenv
-      restartPolicy: Never
+      # ...
 ```
