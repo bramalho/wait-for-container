@@ -26,7 +26,7 @@ spec:
         command: ["/entrypoint.sh"]
         args: ["wait_for", "mysql:DATABASE_URL"]
         envFrom:
-        - configMapRef:
+        - secretRef:
             name: {{ include "app.fullname" . }}-dotenv
       # ...
 ```
